@@ -19,9 +19,7 @@ chrome.runtime.onInstalled.addListener(function () {
     const hostname = new URL(url).hostname;
     chrome.storage.local.get(["blocked", "enabled"], function (local) {
       const { blocked, enabled } = local;
-      if (Array.isArray(blocked) && enabled && blocked.find((domain) => {
-         return stringCheck(hostname, domain);
-        })) {
+      if (Array.isArray(blocked) && enabled && blocked.some(domain => stringCheck(hostname, domain))) {
         chrome.tabs.update(tabId, {
             url : getImageUrl()
         });
@@ -33,23 +31,6 @@ const stringCheck = (s1,s2) => {
     if(s1.length < s2.length) {
         return stringCheck(s2, s1);
     }
-    // [...s1].forEach((char) => {
-    //     if(!alphaMap[char]) {
-    //         alphaMap[char] = 1;
-    //     } else {
-    //         alphaMap[char] = alphaMap[char] + 1;
-    //     }
-    // });
-   
-    // for(const char of s2) {
-        
-    //     if(!alphaMap[char] || alphaMap[char] == 0) {
-    //         ansToReturn = false;
-    //         break;
-    //     }
-    //     alphaMap[char] = alphaMap[char] - 1;
-    // }
-    // console.log(s1, s2, alphaMap, ansToReturn);
     return s1.includes(s2);
 }
 
