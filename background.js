@@ -50,7 +50,7 @@ const stringCheck = (s1,s2) => {
     //     alphaMap[char] = alphaMap[char] - 1;
     // }
     // console.log(s1, s2, alphaMap, ansToReturn);
-    return ansTs1.includes(s2);
+    return s1.includes(s2);
 }
 
 const getImageUrl = () => {
