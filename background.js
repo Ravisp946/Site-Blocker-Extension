@@ -33,9 +33,6 @@ const stringCheck = (s1,s2) => {
     if(s1.length < s2.length) {
         return stringCheck(s2, s1);
     }
-    const alphaMap = {};
-    let ansToReturn = true;
-    ansToReturn = s1.includes(s2);
     // [...s1].forEach((char) => {
     //     if(!alphaMap[char]) {
     //         alphaMap[char] = 1;
@@ -53,7 +50,7 @@ const stringCheck = (s1,s2) => {
     //     alphaMap[char] = alphaMap[char] - 1;
     // }
     // console.log(s1, s2, alphaMap, ansToReturn);
-    return ansToReturn;
+    return ansTs1.includes(s2);
 }
 
 const getImageUrl = () => {
