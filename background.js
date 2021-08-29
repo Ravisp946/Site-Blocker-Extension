@@ -35,23 +35,23 @@ const stringCheck = (s1,s2) => {
     }
     const alphaMap = {};
     let ansToReturn = true;
-    
-    [...s1].forEach((char) => {
-        if(!alphaMap[char]) {
-            alphaMap[char] = 1;
-        } else {
-            alphaMap[char] = alphaMap[char] + 1;
-        }
-    });
+    ansToReturn = s1.includes(s2);
+    // [...s1].forEach((char) => {
+    //     if(!alphaMap[char]) {
+    //         alphaMap[char] = 1;
+    //     } else {
+    //         alphaMap[char] = alphaMap[char] + 1;
+    //     }
+    // });
    
-    for(const char of s2) {
+    // for(const char of s2) {
         
-        if(!alphaMap[char] || alphaMap[char] == 0) {
-            ansToReturn = false;
-            break;
-        }
-        alphaMap[char] = alphaMap[char] - 1;
-    }
+    //     if(!alphaMap[char] || alphaMap[char] == 0) {
+    //         ansToReturn = false;
+    //         break;
+    //     }
+    //     alphaMap[char] = alphaMap[char] - 1;
+    // }
     // console.log(s1, s2, alphaMap, ansToReturn);
     return ansToReturn;
 }
